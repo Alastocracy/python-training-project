@@ -13,4 +13,7 @@ character = {
 
 print(character)
 
-#def encounter():
+def encounter():
+    monster()
+    print("Look out, a " + monster.thismonster.type + " is attacking!")
+    
