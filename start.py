@@ -15,5 +15,7 @@ print(character)
 
 def encounter():
     monster()
-    print("Look out, a " + monster.thismonster.type + " is attacking!")
+    print("Look out, a " + monster.this_monster["type"] + " is attacking!")
+
+encounter()
     
