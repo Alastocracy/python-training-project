@@ -1,9 +1,9 @@
 import random
 import time
 import os
-from monster import monster
-from monster import bigger_monster
-from monster import biggest_monster
+from monsters import monster
+from monsters import bigger_monster
+from monsters import biggest_monster
 
 #encounter function to pick enemies based on char level
 def encounter():
