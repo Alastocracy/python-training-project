@@ -7,6 +7,7 @@ from monster import biggest_monster
 
 #encounter function to pick enemies based on char level
 def encounter():
+    enemy = {}
     if character["lvl"] < 3:
         monster()
         enemy = random.choice(monster.monster_list)
@@ -37,7 +38,7 @@ def encounter():
         character["xp"] = character["xp"] + xp_earned
     else: 
         time.sleep(1)
-        print("You have failed at level " + str(character["lvl"]) + ", better luck next time!")
+        print("Oof, thats unlucky. You have failed at level " + str(character["lvl"]) + ", better luck next time!")
         exit()
 
     if character["xp"] >= (character["lvl"] * 20):
@@ -52,9 +53,12 @@ def encounter():
     else:
         time.sleep(2)
         os.system('cls')
-        print("You must defeat more enemies to advance.")
+        print("You must defeat more enemies to advance to the next level.")
         time.sleep(1)
         encounter()
+
+#def boss():
+
 
 #Function for tower floor loop
 def floor():
@@ -90,10 +94,9 @@ time.sleep(2)
 print("Fight your way to the top to be crowned Tower Champion.\nGood luck!")
 time.sleep(2)
 print("Fade to black...")
-time.sleep(5)
+time.sleep(4)
 
-#Level 1-7 game loop
-floor()
+#Level 1-6 game loop
 floor()
 floor()
 floor()
