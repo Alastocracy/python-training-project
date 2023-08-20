@@ -5,6 +5,67 @@ from monster import monster
 from monster import bigger_monster
 from monster import biggest_monster
 
+#encounter function to pick enemies based on char level
+def encounter():
+    if character["lvl"] < 3:
+        monster()
+        enemy = random.choice(monster.monster_list)
+    elif character["lvl"] < 5:
+        bigger_monster()
+        enemy = random.choice(bigger_monster.monster_list)
+    elif character["lvl"] < 7:
+        enemy = random.choice(biggest_monster.monster_list)
+    
+    print("From the darkness a foe approaches...")
+    time.sleep(2)
+    print("A " + enemy["type"] + " appears!")
+
+    while enemy["hp"] > 0 and character["hp"] > 0:
+        time.sleep(1)
+        character["hp"] = character["hp"] - enemy["dmg"]
+        print("The " + enemy["type"] + " " + enemy["attack"] + " you for " + str(enemy["dmg"]) +" damage.")
+        time.sleep(1)
+        enemy["hp"] = enemy["hp"] - character["dmg"]
+        print("You strike the " + enemy["type"] + " back for " + str(character["dmg"]) + " damage.")
+        time.sleep(1)
+        print(character["charname"] + " hit points remaining: " + str(character["hp"]) + ", " + enemy["type"] + " hit points remaining: " + str(enemy["hp"]))
+
+    if enemy["hp"] < 1:
+        time.sleep(1)
+        print("You have defeated the " + enemy["type"] + "!")
+        xp_earned = enemy["xp"]
+        character["xp"] = character["xp"] + xp_earned
+    else: 
+        time.sleep(1)
+        print("You have failed at level " + str(character["lvl"]) + ", better luck next time!")
+        exit()
+
+    if character["xp"] >= (character["lvl"] * 20):
+        character["lvl"] = character["lvl"] + 1
+        character["xp"] = 0
+        character["hp"] = character["lvl"] * 30
+        character["dmg"] = character["lvl"] * 2
+        print("As the last enemy in the chamber falls, a warmth fills you.\nYou feel refreshed, and perhaps even stronger than before.")
+        time.sleep(1)
+        print("Congratulations " + character["charname"] + " you have cleared this level, and may ascend up to Floor " + str(character["lvl"]) + "!")
+        
+    else:
+        time.sleep(2)
+        os.system('cls')
+        print("You must defeat more enemies to advance.")
+        time.sleep(1)
+        encounter()
+
+#Function for tower floor loop
+def floor():
+    os.system('cls')
+    time.sleep(2)
+    print("FLOOR " + str(character["lvl"]))
+    time.sleep(2)
+    encounter()
+
+#THE GAME
+
 #Clear terminal at start
 os.system('cls')
 
@@ -17,65 +78,25 @@ character = {
     "lvl": 1,
     "xp": 0,
     "hp": 30,
-    "dmg": 3,
+    "dmg": 2,
 }
 
 #Explain the game
 time.sleep(2)
-print("Welcome " + character["charname"] + " to The Tower.")
+print("Well met " + character["charname"] + " , welcome to The Tower.")
 time.sleep(2)
 print("Once you have vanquished the foes on this level, you will proceed to the one above.")
 time.sleep(2)
-print("Fight your way to the top to be crowned Champion.\nGood luck!")
+print("Fight your way to the top to be crowned Tower Champion.\nGood luck!")
+time.sleep(2)
+print("Fade to black...")
 time.sleep(5)
-os.system('cls')
-time.sleep(2)
 
-#Start lvl 1
-print("FLOOR 1")
-time.sleep(2)
-
-#encounter function to pick enemies based on char level
-def encounter():
-    if character["lvl"] < 3:
-        enemy = monster()
-    elif character["lvl"] < 5:
-        enemy = bigger_monster()
-    elif character["lvl"] < 7:
-        enemy = biggest_monster()
-    
-    print("From the darkness a foe approaches...")
-    time.sleep(2)
-    print("A " + enemy.this_monster["type"] + " appears!")
-
-    while enemy.this_monster["hp"] > 0 and character["hp"] > 0:
-        time.sleep(2)
-        print("The " + enemy.this_monster["type"] + " " + enemy.this_monster["attack"] + " you for " + str(enemy.this_monster["dmg"]) +" damage.")
-        enemy.this_monster["hp"] = enemy.this_monster["hp"] - character["dmg"]
-        time.sleep(2)
-        character["hp"] = character["hp"] - enemy.this_monster["dmg"]
-
-        print(character["charname"] + " hit points remaining: " + str(character["hp"]) + ", " + enemy.this_monster["type"] + " hit points remaining: " + str(enemy.this_monster["hp"]))
-
-    if enemy.this_monster["hp"] < 1:
-        time.sleep(1)
-        print("You have defeated the " + enemy.this_monster["type"] + "!")
-        xp_earned = enemy.this_monster["xp"]
-        character["xp"] = character["xp"] + xp_earned
-    else: 
-        time.sleep(1)
-        print("You have failed at level" + character["lvl"] + ", better luck next time!")
-        exit()
-
-    if character["xp"] >= (character["lvl"] * 20):
-        character["lvl"] = character["lvl"] + 1
-        character["xp"] = 0
-        print("Congratulations " + character["charname"] + " you have cleared this level, and may ascend up to Floor " + str(character["lvl"]) + "!")
-    else:
-        time.sleep(2)
-        print("You must defeat more enemies to advance.")
-        time.sleep(1)
-        encounter()
-
-encounter()
-    
+#Level 1-7 game loop
+floor()
+floor()
+floor()
+floor()
+floor()
+floor()
+floor()

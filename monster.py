@@ -1,5 +1,3 @@
-import random
-
 #pick a random low level monster
 class monster():
   monster_list = [
@@ -8,7 +6,6 @@ class monster():
     {"type": "Orc", "hp": 15, "attack": "slashes","dmg": 2, "xp": 15},
     {"type": "Hobgoblin", "hp": 20, "attack": "smashes", "dmg": 2, "xp": 20}
     ]
-  this_monster = random.choice(monster_list)
 
 #pick a random mid level monster
 class bigger_monster():
@@ -18,7 +15,6 @@ class bigger_monster():
     {"type": "Wolf", "hp": 20, "attack": "bites", "dmg": 4, "xp": 40},
     {"type": "Skeletal Swordsman", "hp": 40, "attack": "slashes", "dmg": 2, "xp": 40}
   ]
-  this_monster = random.choice(monster_list)
 
 #pick a high level monster
 class biggest_monster():
@@ -28,4 +24,3 @@ class biggest_monster():
     {"type": "Ghoul", "hp": 60, "attack": "curses", "dmg": 1, "xp": 50},
     {"type": "Warlock", "hp": 30, "attack": "zaps", "dmg": 10, "xp": 60},
   ]
-  this_monster = random.choice(monster_list)
