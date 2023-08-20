@@ -7,6 +7,7 @@ from monster import biggest_monster
 
 #encounter function to pick enemies based on char level
 def encounter():
+    #declare enemy as null when class is called to not use the same monster stats
     enemy = {}
     if character["lvl"] < 3:
         monster()
@@ -21,6 +22,7 @@ def encounter():
     time.sleep(2)
     print("A " + enemy["type"] + " appears!")
 
+    #fight sequence
     while enemy["hp"] > 0 and character["hp"] > 0:
         time.sleep(1)
         character["hp"] = character["hp"] - enemy["dmg"]
@@ -31,6 +33,7 @@ def encounter():
         time.sleep(1)
         print(character["charname"] + " hit points remaining: " + str(character["hp"]) + ", " + enemy["type"] + " hit points remaining: " + str(enemy["hp"]))
 
+    #combat clean up
     if enemy["hp"] < 1:
         time.sleep(1)
         print("You have defeated the " + enemy["type"] + "!")
@@ -41,6 +44,7 @@ def encounter():
         print("Oof, thats unlucky. You have failed at level " + str(character["lvl"]) + ", better luck next time!")
         exit()
 
+    #level up and next level
     if character["xp"] >= (character["lvl"] * 20):
         character["lvl"] = character["lvl"] + 1
         character["xp"] = 0
@@ -76,7 +80,7 @@ os.system('cls')
 #Intro
 name = input("Hello Adventurer, what is your name? ")
 
-#Create starting character teplate
+#Create starting character template
 character = {
     "charname": name,
     "lvl": 1,
