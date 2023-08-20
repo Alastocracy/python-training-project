@@ -11,7 +11,7 @@ class monster():
 class bigger_monster():
   monster_list = [
     {"type": "Hobgoblin", "hp": 20, "attack": "smashes", "dmg": 2, "xp": 20},
-    {"type": "Swarm of Rats", "hp": 40, "attack": "smashes", "dmg": 1, "xp": 20},
+    {"type": "Swarm of Rats", "hp": 40, "attack": "nibbles", "dmg": 1, "xp": 20},
     {"type": "Wolf", "hp": 20, "attack": "bites", "dmg": 4, "xp": 40},
     {"type": "Skeletal Swordsman", "hp": 40, "attack": "slashes", "dmg": 2, "xp": 40}
   ]
@@ -20,7 +20,7 @@ class bigger_monster():
 class biggest_monster():
   monster_list = [
     {"type": "Skeletal Swordsman", "hp": 40, "attack": "slashes", "dmg": 2, "xp": 40},
-    {"type": "Death Knight", "hp": 60, "attack": "strikes", "dmg": 5, "xp": 60},
-    {"type": "Ghoul", "hp": 60, "attack": "curses", "dmg": 1, "xp": 50},
-    {"type": "Warlock", "hp": 30, "attack": "zaps", "dmg": 10, "xp": 60},
+    {"type": "Death Knight", "hp": 70, "attack": "strikes", "dmg": 5, "xp": 60},
+    {"type": "Ghoul", "hp": 100, "attack": "curses", "dmg": 1, "xp": 50},
+    {"type": "Warlock", "hp": 40, "attack": "zaps", "dmg": 10, "xp": 60},
   ]
