@@ -3,6 +3,7 @@ import random
 class boss():
     boss = {"name": "", "type": "", "hp": 0, "attack": "", "dmg": 0}
 
+    #More boss types to be added in future, for now here be dragons
     boss_types = ["Dragon"]
 
     boss["type"] = random.choice(boss_types)
