@@ -43,6 +43,9 @@ def encounter():
     else: 
         time.sleep(1)
         print("Oof, thats unlucky. You have failed at level " + str(character["lvl"]) + ", better luck next time!")
+        time.sleep(1)
+        print("░██████╗░░█████╗░███╗░░░███╗███████╗  ░█████╗░██╗░░░██╗███████╗██████╗░\n██╔════╝░██╔══██╗████╗░████║██╔════╝  ██╔══██╗██║░░░██║██╔════╝██╔══██╗\n██║░░██╗░███████║██╔████╔██║█████╗░░  ██║░░██║╚██╗░██╔╝█████╗░░██████╔╝\n██║░░╚██╗██╔══██║██║╚██╔╝██║██╔══╝░░  ██║░░██║░╚████╔╝░██╔══╝░░██╔══██╗\n╚██████╔╝██║░░██║██║░╚═╝░██║███████╗  ╚█████╔╝░░╚██╔╝░░███████╗██║░░██║\n░╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝  ░╚════╝░░░░╚═╝░░░╚══════╝╚═╝░░╚═╝")
+        time.sleep(5)
         exit()
 
     #level up and next level
@@ -104,6 +107,9 @@ def boss_floor():
     else: 
         time.sleep(1)
         print("Oof, thats unlucky. You have failed at level " + str(character["lvl"]) + ", better luck next time!")
+        time.sleep(1)
+        print("░██████╗░░█████╗░███╗░░░███╗███████╗  ░█████╗░██╗░░░██╗███████╗██████╗░\n██╔════╝░██╔══██╗████╗░████║██╔════╝  ██╔══██╗██║░░░██║██╔════╝██╔══██╗\n██║░░██╗░███████║██╔████╔██║█████╗░░  ██║░░██║╚██╗░██╔╝█████╗░░██████╔╝\n██║░░╚██╗██╔══██║██║╚██╔╝██║██╔══╝░░  ██║░░██║░╚████╔╝░██╔══╝░░██╔══██╗\n╚██████╔╝██║░░██║██║░╚═╝░██║███████╗  ╚█████╔╝░░╚██╔╝░░███████╗██║░░██║\n░╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝  ░╚════╝░░░░╚═╝░░░╚══════╝╚═╝░░╚═╝")
+        time.sleep(5)
         exit()
     #levevl up after defeating the boss
     character["lvl"] = character["lvl"] + 1
@@ -111,7 +117,13 @@ def boss_floor():
     character["hp"] = character["lvl"] * 30
     character["dmg"] = character["lvl"] * 2
     time.sleep(1)
-    print("Congratulations " + character["charname"] + " you have cleared this level, and may ascend up to Floor " + str(character["lvl"]) + "!")
+    print("Congratulations " + character["charname"] + " you have cleared this level, and completed The Tower!")
+    time.sleep(1)
+    print(character["charname"] + " is the new Champion of the Tower!")
+    time.sleep(1)
+    print("░█████╗░██╗░░██╗░█████╗░███╗░░░███╗██████╗░██╗░█████╗░███╗░░██╗\n██╔══██╗██║░░██║██╔══██╗████╗░████║██╔══██╗██║██╔══██╗████╗░██║\n██║░░╚═╝███████║███████║██╔████╔██║██████╔╝██║██║░░██║██╔██╗██║\n██║░░██╗██╔══██║██╔══██║██║╚██╔╝██║██╔═══╝░██║██║░░██║██║╚████║\n╚█████╔╝██║░░██║██║░░██║██║░╚═╝░██║██║░░░░░██║╚█████╔╝██║░╚███║\n░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░░░░╚═╝╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚══╝")
+    time.sleep(5)
+    exit()
     
 #THE GAME
 
@@ -148,5 +160,4 @@ floor()
 floor()
 floor()
 floor()
-boss_floor()
 boss_floor()
