@@ -9,6 +9,7 @@ from bosses import boss
 #encounter function to pick enemies based on char level
 def encounter():
     enemy = {}
+    #if low level gen low level monster etc
     if character["lvl"] < 3:
         monster()
         enemy = random.choice(monster.monster_list)
@@ -18,6 +19,7 @@ def encounter():
     elif character["lvl"] < 7:
         enemy = random.choice(biggest_monster.monster_list)
     
+    #introduce enemy
     print("From the darkness a foe approaches...")
     time.sleep(2)
     print("A " + enemy["type"] + " appears!")
@@ -25,11 +27,11 @@ def encounter():
     #fight sequence
     while enemy["hp"] > 0 and character["hp"] > 0:
         time.sleep(1)
-        character["hp"] = character["hp"] - enemy["dmg"]
-        print("The " + enemy["type"] + " " + enemy["attack"] + " you for " + str(enemy["dmg"]) +" damage.")
+        character["hp"] = character["hp"] - random.randrange(0, enemy["dmg"])
+        print("The " + enemy["type"] + " " + enemy["attack"] + " you!")
         time.sleep(1)
-        enemy["hp"] = enemy["hp"] - character["dmg"]
-        print("You strike the " + enemy["type"] + " back for " + str(character["dmg"]) + " damage.")
+        enemy["hp"] = enemy["hp"] - random.randrange(0, character["dmg"])
+        print("You strike the " + enemy["type"] + " back!")
         time.sleep(1)
         print(character["charname"] + " hit points remaining: " + str(character["hp"]) + ", " + enemy["type"] + " hit points remaining: " + str(enemy["hp"]))
 
@@ -94,11 +96,11 @@ def boss_floor():
 
     while enemy["hp"] > 0 and character["hp"] > 0:
         time.sleep(1)
-        character["hp"] = character["hp"] - enemy["dmg"]
-        print(enemy["name"] + " " + enemy["attack"] + " you for " + str(enemy["dmg"]) +" damage.")
+        character["hp"] = character["hp"] - random.randrange(0, enemy["dmg"])
+        print(enemy["name"] + " " + enemy["attack"] + " you!")
         time.sleep(1)
-        enemy["hp"] = enemy["hp"] - character["dmg"]
-        print("You strike the " + enemy["type"] + " back for " + str(character["dmg"]) + " damage.")
+        enemy["hp"] = enemy["hp"] - random.randrange(0, character["dmg"])
+        print("You strike the " + enemy["type"] + " back!")
         time.sleep(1)
         print(character["charname"] + " hit points remaining: " + str(character["hp"]) + ", " + enemy["type"] + " hit points remaining: " + str(enemy["hp"]))
 
