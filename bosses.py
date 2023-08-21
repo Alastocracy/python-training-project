@@ -9,7 +9,7 @@ class boss():
     boss["type"] = random.choice(boss_types)
 
     if boss["type"] == "Dragon":
-        boss = {"name": "", "type": "Dragon", "hp": 20, "attack": "scorches", "dmg": 5}
+        boss = {"name": "", "type": "Dragon", "hp": 16, "attack": "scorches", "dmg": 4}
         dragon_names = ["Drakaroth", "Sylvestra", "Auronex", "Virelith", "Zephyrion", "Nivalis", "Seraphira", "Nocturnis", "Verdantix", "Celestrix", "Solarius", 
                 "Pyralis", "Tyranthor", "Lumidra", "Infernix", "Aquavox", "Jormungandr", "Nidhogg", "Fafnir", "Midgardsormr", "Lyngbakr", "Nafnafell", 
                 "Hafgufa", "Otr", "Fjalar", "Jǫrmungandr", "Elivagar"]

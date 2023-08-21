@@ -8,7 +8,6 @@ from bosses import boss
 
 #encounter function to pick enemies based on char level
 def encounter():
-    #declare enemy as null when class is called to not use the same monster stats
     enemy = {}
     if character["lvl"] < 3:
         monster()
@@ -85,6 +84,7 @@ def boss_floor():
     enemy = {}
     boss()
     enemy = boss.boss
+    #scale bosses stats with tower level (for multiple bosses on different levels in the future)
     enemy["dmg"] = enemy["dmg"] * character["lvl"]
     enemy["hp"] = enemy["hp"] * character["lvl"]
 
@@ -95,7 +95,7 @@ def boss_floor():
     while enemy["hp"] > 0 and character["hp"] > 0:
         time.sleep(1)
         character["hp"] = character["hp"] - enemy["dmg"]
-        print("The " + enemy["type"] + " " + enemy["attack"] + " you for " + str(enemy["dmg"]) +" damage.")
+        print(enemy["name"] + " " + enemy["attack"] + " you for " + str(enemy["dmg"]) +" damage.")
         time.sleep(1)
         enemy["hp"] = enemy["hp"] - character["dmg"]
         print("You strike the " + enemy["type"] + " back for " + str(character["dmg"]) + " damage.")
@@ -134,8 +134,8 @@ def boss_floor():
 #Clear terminal at start
 os.system('cls')
 
-#Intro
-name = input("Hello Adventurer, what is your name? ")
+#Get character name and ensure its a string
+name = str(input("Hello Adventurer, what is your name? "))
 
 #Create starting character template
 character = {
@@ -143,7 +143,7 @@ character = {
     "lvl": 1,
     "xp": 0,
     "hp": 30,
-    "dmg": 2,
+    "dmg": 3,
 }
 
 #Explain the game
